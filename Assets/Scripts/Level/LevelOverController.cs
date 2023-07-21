@@ -18,8 +18,8 @@ public class LevelOverController : MonoBehaviour
         if(collision.gameObject.GetComponent<PlayerController>() != null)
         {
             Debug.Log("Level Finished by the player");
-            LevelManager.Instance.MarkCurrentLevelComplete();
             LevelComplete();
+            LevelManager.Instance.MarkCurrentLevelComplete();
         }
     }
 
