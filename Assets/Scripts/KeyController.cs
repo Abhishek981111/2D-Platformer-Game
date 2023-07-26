@@ -13,6 +13,7 @@ public class KeyController : MonoBehaviour
             animator.SetTrigger("KeyFadeTrigger");
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.PickUpKey();
+            SoundManager.Instance.Play(Sounds.KeyPickUp);
             Destroy(gameObject, 0.6f);
         }
     }

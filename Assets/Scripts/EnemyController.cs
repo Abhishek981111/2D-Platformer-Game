@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.transform.TryGetComponent<PlayerController>(out PlayerController controller))
         {
+            SoundManager.Instance.PlayMusic(Sounds.EnemyAttack);
             controller.DecreaseHealth();
         }
     }

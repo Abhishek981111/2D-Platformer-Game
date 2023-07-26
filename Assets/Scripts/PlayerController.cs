@@ -20,10 +20,11 @@ public class PlayerController : MonoBehaviour
     public Transform startPosition;
     [SerializeField] private GameObject mainCamera; 
     public GameOverController gameOverController;
-
-
+    AudioSource footsAudioData;
     private void Awake()
     {
+        footsAudioData = GetComponent<AudioSource>();
+        footsAudioData.Play();
         Debug.Log("Player controller awake");
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         boxCol = this.GetComponent<BoxCollider2D>();
@@ -69,10 +70,15 @@ public class PlayerController : MonoBehaviour
         if(horizontalInput < 0)
         {
             scale.x = -1 * Mathf.Abs(scale.x);
+            footsAudioData.UnPause();
         }
         else if(horizontalInput > 0)
         {
             scale.x = Mathf.Abs(scale.x);
+            footsAudioData.UnPause();
+        }
+        else{
+            footsAudioData.Pause();
         }
         transform.localScale = scale;
 
@@ -81,6 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Jump", true); 
             animator.SetFloat("Speed", 0);
+            footsAudioData.Pause();
         }
         else
         {

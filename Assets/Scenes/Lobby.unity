@@ -734,6 +734,14 @@ MonoBehaviour:
     soundClip: {fileID: 8300000, guid: 0651b56880a11ef45909b779443691aa, type: 3}
   - soundType: 3
     soundClip: {fileID: 8300000, guid: d1561ed3a5a60a040bc0b9be00c9f581, type: 3}
+  - soundType: 2
+    soundClip: {fileID: 8300000, guid: 13de3c8b19190eb488622c2982f7e977, type: 3}
+  - soundType: 6
+    soundClip: {fileID: 8300000, guid: d76c71e98617e1c41a5cdc490eb1bee1, type: 3}
+  - soundType: 4
+    soundClip: {fileID: 8300000, guid: c539814be01106547adfb69ffbf92813, type: 3}
+  - soundType: 7
+    soundClip: {fileID: 8300000, guid: 3be171efc7758c14fbbd5d2a11f944cb, type: 3}
   IsMute: 0
   Volume: 1
 --- !u!4 &412267082
