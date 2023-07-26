@@ -29,6 +29,7 @@ public class LevelOverController : MonoBehaviour
     }
     public void MainMenu()
     {
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         Debug.Log("Loading scene 0");
         SceneManager.LoadScene(0);  
     }

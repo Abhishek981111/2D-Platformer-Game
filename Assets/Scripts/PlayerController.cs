@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public int playerHealth;
     [SerializeField] private Image[] hearts;
     public Transform startPosition;
-    //private bool isDead = false;
     [SerializeField] private GameObject mainCamera; 
     public GameOverController gameOverController;
 
@@ -136,7 +135,6 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
-        //isDead = true;
         mainCamera.transform.parent = null;
         // Setting death UI panel to active
         gameOverController.PlayerDied();
