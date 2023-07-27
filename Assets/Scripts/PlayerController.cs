@@ -20,11 +20,10 @@ public class PlayerController : MonoBehaviour
     public Transform startPosition;
     [SerializeField] private GameObject mainCamera; 
     public GameOverController gameOverController;
-    AudioSource footsAudioData;
+    public AudioSource footStepsSound;
+
     private void Awake()
     {
-        footsAudioData = GetComponent<AudioSource>();
-        footsAudioData.Play();
         Debug.Log("Player controller awake");
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         boxCol = this.GetComponent<BoxCollider2D>();
@@ -39,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //for running animation
-        float horizontalInput = Input.GetAxisRaw("Horizontal");       
+        float horizontalInput = Input.GetAxisRaw("Horizontal");      
         float verticalInput = Input.GetAxisRaw("jump");               
 
         MoveCharacter(horizontalInput, verticalInput);
@@ -70,15 +69,10 @@ public class PlayerController : MonoBehaviour
         if(horizontalInput < 0)
         {
             scale.x = -1 * Mathf.Abs(scale.x);
-            footsAudioData.UnPause();
         }
         else if(horizontalInput > 0)
         {
             scale.x = Mathf.Abs(scale.x);
-            footsAudioData.UnPause();
-        }
-        else{
-            footsAudioData.Pause();
         }
         transform.localScale = scale;
 
@@ -87,7 +81,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Jump", true); 
             animator.SetFloat("Speed", 0);
-            footsAudioData.Pause();
         }
         else
         {
@@ -181,6 +174,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // private void FootStepsSoundEnable()
+    // {
+    //     footStepsSound.enabled = true;
+    // }
+
+    // private void FootStepsSoundDisable()
+    // {
+    //     footStepsSound.enabled = false;
+    // }
     // IEnumerator Dead()
     // {
     //     yield return new WaitForSeconds(1f);
