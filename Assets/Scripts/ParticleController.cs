@@ -6,12 +6,8 @@ public class ParticleController : MonoBehaviour
 {
    public ParticleSystem particleSys; 
 
-    private void Awake()
-    {
-        particleSys = gameObject.GetComponent<ParticleSystem>();
-    }
    public void PlayOnLevelFail()
    {
-        particleSys.Play();
+        gameObject.SetActive(true);
    }
 }
