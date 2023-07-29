@@ -9,9 +9,12 @@ public class EnemyController : MonoBehaviour
     public GameObject groundDetector;
     public float rayDistance;
     public Animator enemyAnimator;
+    public int maxHealth = 100;
+    private int currentHealth;
 
     private void Awake()
     {
+        currentHealth = maxHealth;
         enemyAnimator.SetBool("IsPatrol", true);
     }
 
@@ -40,5 +43,30 @@ public class EnemyController : MonoBehaviour
             SoundManager.Instance.PlayMusic(Sounds.EnemyAttack);
             controller.DecreaseHealth();
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        //Play hurt animation
+        enemyAnimator.SetTrigger("Hurt");
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Enemy Died!!");
+        
+        //Die animation
+        enemyAnimator.SetBool("IsDead", true);
+
+        //Disable enemy
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
     }
 }

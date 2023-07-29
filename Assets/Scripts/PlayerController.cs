@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
     public Transform startPosition;
     [SerializeField] private GameObject mainCamera; 
     public GameOverController gameOverController;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public int attackDamage = 40;
+    public float attackRate = 2f;
+    private float nextAttackTime = 0;
+    public LayerMask enemyLayers;
     public AudioSource footStepsSound;
 
     private void Awake()
@@ -44,6 +50,14 @@ public class PlayerController : MonoBehaviour
         MoveCharacter(horizontalInput, verticalInput);
         PlayMovementAnimation(horizontalInput, verticalInput);
         Crouch(isCrouching);
+        if(Time.time >= nextAttackTime)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
+        }
     }
 
     private void MoveCharacter(float horizontalInput, float verticalInput)
@@ -168,6 +182,31 @@ public class PlayerController : MonoBehaviour
     public void PlayDeathAnimation()
     {
         animator.SetBool("Death", true);
+    }
+
+    void Attack()
+    {
+        // Play an attack animation
+        animator.SetTrigger("Attack");
+
+        //Detect enemies in range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        
+        //Damage them
+        foreach(Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if(attackPoint == null)
+        {
+            return;
+        }
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     //Death Collider, scene reload
