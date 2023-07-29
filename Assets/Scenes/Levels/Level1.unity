@@ -6655,108 +6655,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1313163850}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1367643196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2830294381697446705, guid: 2a406518540af824385d20abf8ca0577,
-    type: 3}
-  m_PrefabInstance: {fileID: 270128620017855999}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1367643197
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367643196}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 13de3c8b19190eb488622c2982f7e977, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!4 &1372105856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3156859594164215285, guid: 17622a11214f48f4fa3c806ae819f3f1,
@@ -7017,7 +6915,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 30.461918, y: 0}
@@ -7202,11 +7100,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7430737720637008664, guid: 2a406518540af824385d20abf8ca0577,
-        type: 3}
-      propertyPath: footStepsSound
-      value: 
-      objectReference: {fileID: 1367643197}
     - target: {fileID: 7430737720637008664, guid: 2a406518540af824385d20abf8ca0577,
         type: 3}
       propertyPath: scoreController
@@ -7489,6 +7382,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 979353506}
     m_Modifications:
+    - target: {fileID: 2874566004632019544, guid: 18e0202667754d6419d88c87d6223941,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2874566004632019545, guid: 18e0202667754d6419d88c87d6223941,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7502,7 +7400,7 @@ PrefabInstance:
     - target: {fileID: 2874566004632019545, guid: 18e0202667754d6419d88c87d6223941,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2874566004632019545, guid: 18e0202667754d6419d88c87d6223941,
         type: 3}

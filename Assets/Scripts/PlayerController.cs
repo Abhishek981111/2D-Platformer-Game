@@ -110,6 +110,13 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true; 
         } 
+        //For Death Collider
+        else if(other.gameObject.tag == "DeathCollider")
+        {
+            PlayDeathAnimation();
+            gameOverController.PlayerDied();
+            //StartCoroutine("Dead");
+        }
     }
     
     public void PickUpKey()
@@ -160,19 +167,19 @@ public class PlayerController : MonoBehaviour
 
     public void PlayDeathAnimation()
     {
-        animator.SetTrigger("Death");
+        animator.SetBool("Death", true);
     }
 
     //Death Collider, scene reload
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "DeathCollider")
-        {
-            PlayDeathAnimation();
-            gameOverController.PlayerDied();
-            //StartCoroutine("Dead");
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if(collision.gameObject.tag == "DeathCollider")
+    //     {
+    //         PlayDeathAnimation();
+    //         gameOverController.PlayerDied();
+    //         //StartCoroutine("Dead");
+    //     }
+    // }
 
     // private void FootStepsSoundEnable()
     // {
