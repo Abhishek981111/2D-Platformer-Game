@@ -104,9 +104,12 @@ public enum Sounds
     ButtonClick,
     Music,
     PlayerMove,
+    PlayerAttack,
     PlayerDeath,
     EnemyAttack,
     EnemyDeath,
     KeyPickUp,
+    PlayerEntryVoice,
+    PlayerLevelWinVoice,
     DoorOpening,
 }

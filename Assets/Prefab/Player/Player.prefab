@@ -98,7 +98,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939167286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.34, y: 0.42, z: 0}
+  m_LocalPosition: {x: 1.58, y: 0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7493786641859845155}
@@ -284,7 +284,7 @@ MonoBehaviour:
   mainCamera: {fileID: 519420028}
   gameOverController: {fileID: 0}
   attackPoint: {fileID: 1939167287}
-  attackRange: 0.5
+  attackRange: 0.6
   attackDamage: 40
   attackRate: 2
   enemyLayers:

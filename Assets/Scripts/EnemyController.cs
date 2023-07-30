@@ -64,6 +64,7 @@ public class EnemyController : MonoBehaviour
         
         //Die animation
         enemyAnimator.SetBool("IsDead", true);
+        SoundManager.Instance.Play(Sounds.EnemyDeath);
 
         //Disable enemy
         GetComponent<Collider2D>().enabled = false;

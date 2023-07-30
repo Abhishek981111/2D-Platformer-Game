@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.Play(Sounds.PlayerEntryVoice);
         startPosition.position = transform.position;
         UpdateHealthUI();
     }
@@ -188,6 +189,7 @@ public class PlayerController : MonoBehaviour
     {
         // Play an attack animation
         animator.SetTrigger("Attack");
+        SoundManager.Instance.Play(Sounds.PlayerAttack);
 
         //Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);

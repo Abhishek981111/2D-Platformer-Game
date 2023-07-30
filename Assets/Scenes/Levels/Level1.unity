@@ -7138,7 +7138,7 @@ PrefabInstance:
     - target: {fileID: 7493786641859845155, guid: 2a406518540af824385d20abf8ca0577,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.98
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 7493786641859845155, guid: 2a406518540af824385d20abf8ca0577,
         type: 3}
@@ -7368,11 +7368,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 697318625082524335, guid: 11ca9ac40e8bebc40a4d1115f9f6c74a,
-        type: 3}
-      propertyPath: ShapeModule.m_Texture
-      value: 
-      objectReference: {fileID: 2800000, guid: 66c07571e706141478fcd866112d0246, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ca9ac40e8bebc40a4d1115f9f6c74a, type: 3}
 --- !u!1001 &2874566004509543915
@@ -7382,11 +7377,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 979353506}
     m_Modifications:
-    - target: {fileID: 2874566004632019544, guid: 18e0202667754d6419d88c87d6223941,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2874566004632019545, guid: 18e0202667754d6419d88c87d6223941,
         type: 3}
       propertyPath: m_Pivot.x
