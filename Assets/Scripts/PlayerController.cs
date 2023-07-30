@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public int playerHealth;
     [SerializeField] private Image[] hearts;
     public Transform startPosition;
-    [SerializeField] private GameObject mainCamera; 
+    [SerializeField] private GameObject mainCamera;
     public GameOverController gameOverController;
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -26,13 +26,15 @@ public class PlayerController : MonoBehaviour
     public float attackRate = 2f;
     private float nextAttackTime = 0;
     public LayerMask enemyLayers;
-    public AudioSource footStepsSound;
+    private AudioSource audioSource;
+    private bool isMoving;
 
     private void Awake()
     {
         Debug.Log("Player controller awake");
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         boxCol = this.GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -45,12 +47,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //for running animation
-        float horizontalInput = Input.GetAxisRaw("Horizontal");      
-        float verticalInput = Input.GetAxisRaw("jump");               
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("jump");
 
         MoveCharacter(horizontalInput, verticalInput);
         PlayMovementAnimation(horizontalInput, verticalInput);
+
+        //Crouching
         Crouch(isCrouching);
+
+        //for attacking animation
         if(Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -59,13 +65,32 @@ public class PlayerController : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
+
+        //for footsteps sound
+        if(Input.GetAxisRaw("Horizontal") != 0 && isGrounded)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        if(isMoving && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        if(!isMoving)
+        {
+            audioSource.Stop();
+        }
     }
 
     private void MoveCharacter(float horizontalInput, float verticalInput)
     {
-        //move character horizontally 
+        //move character horizontally
         Vector3 position = transform.position;
-        position.x += horizontalInput * speed * Time.deltaTime;  
+        position.x += horizontalInput * speed * Time.deltaTime;
         transform.position = position;
 
         //move chararcter vertically
@@ -92,9 +117,9 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scale;
 
         //Jump
-        if(verticalInput > 0)                         
+        if(verticalInput > 0)
         {
-            animator.SetBool("Jump", true); 
+            animator.SetBool("Jump", true);
             animator.SetFloat("Speed", 0);
         }
         else
@@ -112,7 +137,7 @@ public class PlayerController : MonoBehaviour
             isCrouching = true;
             animator.SetBool("Crouch", isCrouching);
         }
-        else 
+        else
         {
             isCrouching = false;
             animator.SetBool("Crouch", isCrouching);
@@ -123,8 +148,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Ground")
         {
-            isGrounded = true; 
-        } 
+            isGrounded = true;
+        }
         //For Death Collider
         else if(other.gameObject.tag == "DeathCollider")
         {
@@ -133,7 +158,7 @@ public class PlayerController : MonoBehaviour
             //StartCoroutine("Dead");
         }
     }
-    
+
     public void PickUpKey()
     {
         Debug.Log("Player picked up the key");
@@ -149,7 +174,7 @@ public class PlayerController : MonoBehaviour
             PlayDeathAnimation();
             PlayerDeath();
         }
-        else 
+        else
         {
             transform.position = startPosition.position;
         }
@@ -193,7 +218,7 @@ public class PlayerController : MonoBehaviour
 
         //Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        
+
         //Damage them
         foreach(Collider2D enemy in hitEnemies)
         {
@@ -236,5 +261,5 @@ public class PlayerController : MonoBehaviour
     //     yield return new WaitForSeconds(1f);
     //     gameOverController.ReloadLevel();
     // }
-    
+
 }

@@ -103,7 +103,6 @@ public enum Sounds
 {
     ButtonClick,
     Music,
-    PlayerMove,
     PlayerAttack,
     PlayerDeath,
     EnemyAttack,
