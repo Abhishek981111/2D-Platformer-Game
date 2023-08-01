@@ -187,7 +187,6 @@ public class PlayerController : MonoBehaviour
         gameOverController.PlayerDied();
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezePosition;
         this.enabled = false;
-        //StartCoroutine("Dead");
     }
 
     public void UpdateHealthUI()
@@ -235,31 +234,5 @@ public class PlayerController : MonoBehaviour
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
-    //Death Collider, scene reload
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if(collision.gameObject.tag == "DeathCollider")
-    //     {
-    //         PlayDeathAnimation();
-    //         gameOverController.PlayerDied();
-    //         //StartCoroutine("Dead");
-    //     }
-    // }
-
-    // private void FootStepsSoundEnable()
-    // {
-    //     footStepsSound.enabled = true;
-    // }
-
-    // private void FootStepsSoundDisable()
-    // {
-    //     footStepsSound.enabled = false;
-    // }
-    // IEnumerator Dead()
-    // {
-    //     yield return new WaitForSeconds(1f);
-    //     gameOverController.ReloadLevel();
-    // }
 
 }
