@@ -1,9 +1,9 @@
 # 2D-Platformer-Game
-Ellen's Adventure is a 2D Platformer game where you are playing as a in-game character called Ellen. Thereby player has to clear every obstacles present in the game, collect points(Keys) to score points and get to next levels.
+Ellen's Adventure is a 2D Platformer game where you are playing as an in-game character called Ellen. Thereby player has to clear every obstacles present in the game, collect points(Keys) to score points and get to next levels.
 
 Playable game link (WebGL): https://abhishek-kadam.itch.io/ellens-adventure
 
-Things I learnt and practiced in this game :
+Things I learnt and practiced in this game project:
 1. Creating and adding animations for player including Run, Jump, Crouch, Attack, Death.
 2. Controlling player character through script, flipping the animation, scripting and physics.
 3. Player movement through scripts for run, jump and crouch.
